@@ -32,7 +32,11 @@ Add the following to config.ini to enable the plugin:
 #parameters for kafka_plugin
 plugin = eosio::kafka_plugin
 kafka-uri = localhost:9092
-accept_trx_topic = accepted_trx_topic
-applied_trx_topic = applied_trx_topic
+#topic for transactions
+trx_topic = trx
+#topic for account creations
+acc_topic = acc
 kafka-block-start = 100
 kafka-queue-size = 5000
+
+
