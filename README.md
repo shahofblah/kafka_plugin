@@ -15,7 +15,7 @@ EOSIO Kafka Plugin
 ## Building the plugin [Install on your nodeos server]
 ```
 #cd /usr/local/eos/plugins/
-#git clone https://github.com/tokenbankteam/kafka_plugin.git
+#git clone https://github.com/shahofblah/kafka_plugin.git
 
 edit /usr/local/eos/plugins/CMakeLists.txt:
 #add_subdirectory(kafka_plugin)
