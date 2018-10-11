@@ -428,16 +428,17 @@ using kafka_producer_ptr = std::shared_ptr<class kafka_producer>;
             if(action.name == newaccount ) {
                 auto newacc = action.data_as<chain::newaccount>();
                 auto &chain = chain_plug->chain();
+                std::string new_account_name = newacc.name.to_string();
                 struct account_creation_message msg{
                 .tx_id = t->id.str(),
                 .creator_account = "NULL",
-                .account_name = newacc.name.to_string().c_str(),
+                .account_name = new_account_name.c_str(),
                 .block_num = (int)t->block_num,
                 .block_time = (int)chain.pending_block_time().sec_since_epoch()};
-                elog("new acct creation");
-                //elog(newacc.name.to_string());
+                //elog("new acct creation");
+                //elog(new_account_name);
                 char *creation_message = creation_message_to_string(&msg);
-                elog("Creation message constructed");
+                //elog("Creation message constructed");
                 elog(creation_message);
                 producer->trx_kafka_sendmsg(KAFKA_ACCOUNT_CREATION, creation_message);
                 elog("Successfully sent to Kafka queue");
